@@ -1,0 +1,29 @@
+services:
+   db:
+     container_name: demoapp_mx_db
+     image: postgres:16
+     volumes:
+       - data_db:/var/lib/postgresql/data
+     restart: always
+     command: postgres -c wal_level=logical
+     environment:
+       POSTGRES_USER: mendix
+       POSTGRES_PASSWORD: mendix
+       POSTGRES_DB: mendix
+       TZ: Europe/Amsterdam
+
+   app:
+     depends_on:
+       - db
+     ports:
+       - "8080:8000"
+     container_name: demoapp_mx_app
+     image: petervanoers/mendix-m2ee:latest
+     stdin_open: true
+     volumes:
+       - data_app:/srv/mendix
+     restart: always
+
+volumes:
+    data_db:
+    data_app:
