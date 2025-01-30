@@ -31,7 +31,7 @@ create_admin_user
 
 The app should be available on http://localhost:8080
 
-I saw one thing I have to fix in the images. Initial creating of the logging is failing, but if you restart the app container it's working fine. De logging of the m2ee console is end to the log of the docker conatiner.
+De logging of the m2ee console is send to the log of the docker conatiner.
 
 Things to consider:
 The app is not starting by itself, you have to login into the container and start the app. (m2ee start) 
