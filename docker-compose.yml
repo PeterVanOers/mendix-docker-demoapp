@@ -1,7 +1,7 @@
 services:
    db:
      container_name: demoapp_mx_db
-     image: postgres:16
+     image: postgres:17
      volumes:
        - data_db:/var/lib/postgresql/data
        - data_db_run:/var/run/postgresql
